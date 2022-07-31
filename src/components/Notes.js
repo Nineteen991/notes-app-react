@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 
-export default function Notes({notes, setNotes}) {
+export default function Notes({notes, setNotes, setNoteObj, setEditNote}) {
   const [noteElements, setNoteElements] = useState(null)
 
   function deleteAllNotes() {
+    // reset all the states
     setNotes([])
+    setEditNote([false, {}])
+    setNoteObj({
+      noteTitle: '',
+      noteDetails: ''
+    })
   }
 
   function deleteNote(id) {
@@ -12,9 +18,17 @@ export default function Notes({notes, setNotes}) {
     setNotes(notesToKeep)
   }
 
-  function editNote(id) {
+  function editingNote(id) {
+    // get the note that needs to be edited
     const noteToEdit = notes.filter(note => note.id === id)
-    console.log(noteToEdit)
+    // save that note & set true
+    setEditNote([true, noteToEdit[0]])
+    // set the note obj so we can edit on the AddNote file
+    setNoteObj({
+      noteTitle: noteToEdit[0].noteTitle,
+      noteDetails: noteToEdit[0].noteDetails,
+      id: noteToEdit[0].id
+    })
   }
 
   useEffect(() => {
@@ -33,7 +47,7 @@ export default function Notes({notes, setNotes}) {
             <button 
               className='btn' 
               id='edit-btn'
-              onClick={() => editNote(note.id)}
+              onClick={() => editingNote(note.id)}
             >
               Edit
             </button>
