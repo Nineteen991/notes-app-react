@@ -1,0 +1,155 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --color-primary:  #ccf2ff;
+  --color-sec: #ffb380;
+  --color-grey: #eee;
+  --color-dark-grey: #222831;
+  --color-red-btns: #ff3333;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: lightskyblue;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+}
+
+.title-h1 {
+  grid-column: 2 / 3;
+  justify-self: center;
+  padding: 1rem 0;
+}
+
+/*           Add note component           */
+
+.add-note {
+  grid-column: 2 / 3;
+  padding: 2rem 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-note-title {
+  margin-bottom: 2rem;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-note-input {
+  width: 100%;
+}
+
+#add-note-textarea {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+#add-note-btn {
+  margin-top: 2rem;
+  border: none;
+  background-color: var(--color-sec);
+}
+
+/*           Notes component           */
+
+.your-notes {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  padding: 1rem 0 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#delete-all-notes {
+  background-color: var(--color-red-btns);
+}
+
+#your-notes-ul {
+  width: 100%;
+}
+
+.your-notes-li {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-primary);
+  border-radius: 1rem;
+}
+
+.your-notes-header {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.your-notes-number {
+  background-color: var(--color-sec);
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btns-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#delete-btn {
+  background-color: var(--color-red-btns);
+}
+
+#edit-btn {
+  background-color: #9d0191;
+}
+
+.your-notes-title {
+  margin: 1rem 0;
+}
